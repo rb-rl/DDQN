@@ -4,6 +4,72 @@ This report contains technical details on the approach used in this project.
 
 ## Implementation
 
+The reinforcement learning agent used in this project is based on double deep Q-learning. 
+
+### Q-Updates
+
+In this approach, two action value functions `Q(s,a)` and `Q'(s,a)` are used, where `s` is the state and `a` the action. The first of these two functions is updated according to the rule
+
+`Q(s,a) <- (1 - alpha) * Q(s,a) + alpha * (r + gamma * max_a'Q'(s',a'))` (1)
+
+where `alpha` is the learning rate, `r` the reward when going from state `s` to `s'` and `gamma` is the discount factor. More on the details of this update will be shown further below.
+
+The second function is updated via a soft update according to
+
+`Q'(s,a) <- (1 - tau) * Q'(s,a) + tau * Q(s,a)`
+
+with the soft update rate `tau`. Note that this update is not performed every frame but only every `frames per update` frame.
+
+### Network topology
+
+Each of the two action-value functions is represented by a neural network consisting of 3 hidden layers with 64 neurons per layer, yielding the network architecture
+
+`37 -> 64 -> 64 -> 64 -> 4`
+
+The hidden layers have the `rectified linear unit` (=relu) as the activation function, whereas the output layer is purely linear.
+
+If a state `s` and action `a` is given, the value of the action value function `Q(s,a)` is given by forward-propagating the state `s` through the neural network and looking at the activation value of the output neuron `a`.
+
+### Backpropagation
+
+Convergence is reached in (1) if 
+
+`Q(s,a) = (1 - alpha) * Q(s,a) + alpha * (r + gamma * max_a'Q'(s',a'))` 
+
+or 
+
+`r + gamma * max_a'Q'(s',a') - Q(s,a) = 0` (2)
+
+This is achieved via a backpropagation with the `batch size=64` of the neural network underlying the action-value function `Q(s,a)` with the mean square error loss function on the left hand side of equation (2) and an Adam optimizer.
+
+### Policy
+
+The policy is an epsilon greedy policy. I.e., there is an epsilon value, which starts at `epsilon=1` and is decreased to `epislon=0.01` with the `epsilon decay factor=0.9999`, which is applied at each learning step. An epsilon greedy policy means that with a probability `epsilon` a random action is chosen and otherwise the action is chosen which yields the largest `Q(s,a)`-value.
+
+### Replay memory
+
+Also, a replay memory is used, which can store 10000 elements, where the oldest elements are discared if the limit of the memory is reached.
+
+
+## Hyperparameters
+
+A summary of the hyperparameters used to solve the environment is given in the following:
+
+- `alpha = 0.001`
+- `gamma = 0.99`
+- `epsilon interval = [0.01, 1]`
+- `epsilon decay factor = 0.9999`
+- `batch size = 64`
+- `loss = mse`
+- `tau = 0.001`
+- `frames per update = 4`
+
+- `max replay memory size = 100000`
+
+- `number of hidden layers = 3`
+- `hidden neurons per hidden layer = 64`
+- `activation function = relu`
+
 ## Solution
 
 As explained in the [Readme.md](Readme.md), the environment is considered as solved, if the average score over 100 consecutive episodes is at least +13. A solution of the environment was achieved in 605 episodes, as shown by the following screenshot from the Jupyter notebook:
