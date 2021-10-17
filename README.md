@@ -52,7 +52,7 @@ git clone https://github.com/udacity/deep-reinforcement-learning.git
 
 cd deep-reinforcement-learning/python
 ```
-- Remove *torch==0.4.0* in the file *requirements.txt* located in the current folder (=.../python)
+- Remove `torch==0.4.0` in the file `requirements.txt` located in the current folder `.../python`
 - Continue with the following commands:
 ```
 pip install .
@@ -67,13 +67,13 @@ git clone git@github.com:rb-rl/DDQN.git
 cd DDQN
 ```
 - Download the [Udacity Unity Banana environment](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86_64.zip)
-- Unzip the zip file into the folder DDQN such that the Banana.exe in the zip file has the relative path DDQN\Banana_Windows_x86_64\Banana.exe
+- Unzip the zip file into the folder `DDQN` such that the `Banana.exe` in the zip file has the relative path `DDQN\Banana_Windows_x86_64\Banana.exe`
 - Start a jupyter notebook with the following command:
 ```
 jupyter notebook
 ```
-- Open *Navigation.ipynb*
-- In the Jupyter notebook, select *Kernel* -> *Change Kernel* -> *drlnd*
+- Open `Navigation.ipynb`
+- In the Jupyter notebook, select `Kernel -> Change Kernel -> drlnd`
 
 ## Usage
 
