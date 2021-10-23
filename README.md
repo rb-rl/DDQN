@@ -72,7 +72,7 @@ cd DDQN
 ```
 jupyter notebook
 ```
-- Open `Navigation.ipynb`
+- Open `Main.ipynb`
 - In the Jupyter notebook, select `Kernel -> Change Kernel -> drlnd`
 
 ## Usage
