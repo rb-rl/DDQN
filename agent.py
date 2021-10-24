@@ -216,11 +216,11 @@ class Agent:
         adjusted_rewards = rewards.unsqueeze(1)
         adjusted_dones = dones.unsqueeze(1).float()
 
-        # max_a' Q(s',a')
+        # max_a' Q'(s',a')
         target_q_value_per_action = self.__q_network_target(next_states).detach()
         target_max_q_value = target_q_value_per_action.max(1)[0].unsqueeze(1)
 
-        # r'+gamma*max_a' Q(s',a')
+        # r'+gamma*max_a' Q'(s',a')
         target = adjusted_rewards + (GAMMA * target_max_q_value * (1 - adjusted_dones))
 
         # Q(s,a)
