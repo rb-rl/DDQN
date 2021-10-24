@@ -115,6 +115,9 @@ class Agent:
 
         Args:
             state: The current state of the agent.
+
+        Returns:
+            The selected action.
         """
         if random() > self.__epsilon:
             input = torch.from_numpy(state).float().unsqueeze(0).to(self.__device)
