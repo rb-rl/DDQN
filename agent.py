@@ -218,17 +218,17 @@ class Agent:
 
         # max_a' Q'(s',a')
         self.__q_network_target.eval()
-        target_q_value_per_action = self.__q_network_target(next_states).detach()
-        target_max_q_value = target_q_value_per_action.max(1)[0].unsqueeze(1)
+        target_q_value_per_actions = self.__q_network_target(next_states).detach()
+        target_max_q_values = target_q_value_per_actions.max(1)[0].unsqueeze(1)
 
         # r'+gamma*max_a' Q'(s',a')
-        target = adjusted_rewards + (GAMMA * target_max_q_value * (1 - adjusted_dones))
+        targets = adjusted_rewards + (GAMMA * target_max_q_values * (1 - adjusted_dones))
 
         # Q(s,a)
         self.__q_network.train()
-        q_value = self.__q_network(states).gather(1, adjusted_actions)
+        q_values = self.__q_network(states).gather(1, adjusted_actions)
 
-        loss = eval("F." + LOSS)(q_value, target)
+        loss = eval("F." + LOSS)(q_values, targets)
 
         self.__optimizer.zero_grad()
         loss.backward()
