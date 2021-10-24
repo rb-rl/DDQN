@@ -217,6 +217,7 @@ class Agent:
         adjusted_dones = dones.unsqueeze(1).float()
 
         # max_a' Q'(s',a')
+        self.__q_network_target.eval()
         target_q_value_per_action = self.__q_network_target(next_states).detach()
         target_max_q_value = target_q_value_per_action.max(1)[0].unsqueeze(1)
 
