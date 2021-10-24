@@ -222,7 +222,7 @@ class Agent:
         target_max_q_values = target_q_value_per_actions.max(1)[0].unsqueeze(1)
 
         # r'+gamma*max_a' Q'(s',a')
-        targets = adjusted_rewards + (GAMMA * target_max_q_values * (1 - adjusted_dones))
+        targets = (adjusted_rewards + (GAMMA * target_max_q_values * (1 - adjusted_dones))).detach()
 
         # Q(s,a)
         self.__q_network.train()
