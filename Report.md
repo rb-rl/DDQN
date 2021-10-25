@@ -97,4 +97,4 @@ The suggested improvements are the following ones:
 
 ## References
 
-[1] arxiv.org/pdf/1509.06461.pdf
+[1] [arxiv.org/pdf/1509.06461.pdf](arxiv.org/pdf/1509.06461.pdf)
