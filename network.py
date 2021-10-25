@@ -17,7 +17,7 @@ from torch.nn.functional import relu
 # TOPOLOGY -------------------------------------------------------------------------------------------------------------
 
 # The number of hidden layers.
-NUMBER_HIDDEN_LAYERS = 3
+NUMBER_HIDDEN_LAYERS = 4
 
 # The number of hidden neurons per layer.
 NUMBER_HIDDEN_NEURONS_PER_LAYER = 64
@@ -49,9 +49,9 @@ class NeuralNetwork(Module):
         """
         super(NeuralNetwork, self).__init__()
 
-        NUMBER_VISIBLE_LAYERS = 2
+        NUMBER_OUTPUT_LAYERS = 1
 
-        self.__number_layers = NUMBER_VISIBLE_LAYERS + NUMBER_HIDDEN_LAYERS
+        self.__number_layers = NUMBER_OUTPUT_LAYERS + NUMBER_HIDDEN_LAYERS
 
         number_before = number_inputs
 
