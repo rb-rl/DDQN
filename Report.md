@@ -8,7 +8,7 @@ The reinforcement learning agent used in this project is based on double deep Q-
 
 ### Q-Updates
 
-In this approach, two action value functions `Q(s,a)` and `Q'(s,a)` are used, where `s` is the state and `a` the action. The first of these two functions is updated according to the rule
+In this approach, two action-value functions `Q(s,a)` and `Q'(s,a)` are used, where `s` is the state and `a` the action. The first of these two functions is updated according to the rule
 
 `Q(s,a) <- (1 - alpha) * Q(s,a) + alpha * (r + gamma * max_a'Q'(s',a'))` (1)
 
