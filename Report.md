@@ -22,7 +22,7 @@ with the soft update rate `tau`. Note that this update is not performed every fr
 
 ### Network topology
 
-Each of the two action-value functions is represented by a neural network consisting of 4 hidden fully connected layers with 64 neurons per layer, yielding the network architecture
+Each of the two action-value functions is represented by a fully connected neural network consisting of 4 hidden layers with 64 neurons per layer, yielding the network architecture
 
 `37 -> 64 -> 64 -> 64 -> 64 -> 4`
 
