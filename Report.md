@@ -10,7 +10,7 @@ The reinforcement learning agent used in this project is based on double deep Q-
 
 In this approach, two action-value functions `Q(s,a)` and `Q'(s,a)` are used, where `s` is the state and `a` the action. The first of these two functions is updated according to the rule
 
-`Q(s,a) <- (1 - alpha) * Q(s,a) + alpha * (r + gamma * max_a'Q'(s',a'))` (1)
+`Q(s,a) <- (1 - alpha) * Q(s,a) + alpha * (r + γ * max_a'Q'(s',a'))` (1)
 
 where `alpha` is the learning rate, `r` the reward when going from state `s` to `s'` and `gamma` is the discount factor. More on the details of this update will be shown further below.
 
@@ -56,7 +56,7 @@ Also, a replay memory is used, which can store 10000 elements, where the oldest 
 A summary of the hyperparameters used to solve the environment is given in the following:
 
 - `alpha = 0.001`
-- `gamma = 0.99`
+- `γ = 0.99`
 - `epsilon interval = [0.01, 1]`
 - `epsilon decay factor = 0.9999`
 - `batch size = 64`
