@@ -4,7 +4,7 @@ This report contains technical details on the approach used in this project.
 
 ## Implementation
 
-The reinforcement learning agent used in this project is based on double deep Q-learning. 
+The reinforcement learning agent used in this project is based on double deep Q-learning [1].
 
 ### Q-Updates
 
@@ -94,3 +94,7 @@ The suggested improvements are the following ones:
 - Distributional approaches: In this approach, every state, action pair (s,a) has only a single scalar value Q. Distributional approaches extend this by providing a distribution over multiple Q-values.
 - Rainbow: The paper [Rainbow: Combining Improvements in Deep Reinforcement Learning](https://arxiv.org/pdf/1710.02298.pdf) provides a combination of multiple improvements. The [Dopamine](https://github.com/google/dopamine) framework of Google is an implementation of this framework and could also be used to solve the present environment.
 - Attention: Primarily used in natural language processing, attention layers could also be explored in this context of this project.
+
+## References
+
+[1] arxiv.org/pdf/1509.06461.pdf
