@@ -18,7 +18,7 @@ The second function is updated via a soft update according to
 
 `Q'(s,a) <- (1 - τ) * Q'(s,a) + τ * Q(s,a)`
 
-with the soft update rate `tau`. Note that this update is not performed every frame but only every `frames per update` frame.
+with the soft update rate `τ`. Note that this update is not performed every frame but only every `frames per update` frame.
 
 ### Network topology
 
