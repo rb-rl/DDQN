@@ -16,7 +16,7 @@ where `alpha` is the learning rate, `r` the reward when going from state `s` to 
 
 The second function is updated via a soft update according to
 
-`Q'(s,a) <- (1 - tau) * Q'(s,a) + tau * Q(s,a)`
+`Q'(s,a) <- (1 - τ) * Q'(s,a) + τ * Q(s,a)`
 
 with the soft update rate `tau`. Note that this update is not performed every frame but only every `frames per update` frame.
 
@@ -34,7 +34,7 @@ If a state `s` and action `a` is given, the value of the action value function `
 
 Convergence is reached in (1) if 
 
-`Q(s,a) = (1 - alpha) * Q(s,a) + alpha * (r + gamma * max_a'Q'(s',a'))` 
+`Q(s,a) = (1 - α) * Q(s,a) + α * (r + gamma * max_a'Q'(s',a'))` 
 
 or 
 
@@ -61,7 +61,7 @@ A summary of the hyperparameters used to solve the environment is given in the f
 - `epsilon decay factor = 0.9999`
 - `batch size = 64`
 - `loss = mse`
-- `tau = 0.001`
+- `τ = 0.001`
 - `frames per update = 4`
 
 - `max replay memory size = 100000`
