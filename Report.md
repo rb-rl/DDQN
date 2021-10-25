@@ -50,7 +50,6 @@ The policy is an epsilon greedy policy. I.e., there is an epsilon value, which s
 
 Also, a replay memory is used, which can store 10000 elements, where the oldest elements are discared if the limit of the memory is reached.
 
-
 ## Hyperparameters
 
 A summary of the hyperparameters used to solve the environment is given in the following. The summary is split into a table of the selected values and a detailed description of the meaning of the hyperparameters.
