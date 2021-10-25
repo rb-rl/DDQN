@@ -12,7 +12,7 @@ In this approach, two action-value functions `Q(s,a)` and `Q'(s,a)` are used, wh
 
 `Q(s,a) <- (1 - α) * Q(s,a) + α * (r + γ * max_a'Q'(s',a'))` (1)
 
-where `α` is the learning rate, `r` the reward when going from state `s` to `s'` and `γ` is the discount factor. More on the details of this update will be shown further below.
+where `α` is the learning rate, `r` the reward when going from state `s` to `s'` and `γ` the discount factor. More on the details of this update will be shown further below.
 
 The second function is updated via a soft update according to
 
