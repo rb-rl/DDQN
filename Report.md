@@ -12,7 +12,7 @@ In this approach, two action-value functions `Q(s,a)` and `Q'(s,a)` are used, wh
 
 `Q(s,a) <- (1 - α) * Q(s,a) + α * (r + γ * max_a'Q'(s',a'))` (1)
 
-where `alpha` is the learning rate, `r` the reward when going from state `s` to `s'` and `gamma` is the discount factor. More on the details of this update will be shown further below.
+where `alpha` is the learning rate, `r` the reward when going from state `s` to `s'` and `γ` is the discount factor. More on the details of this update will be shown further below.
 
 The second function is updated via a soft update according to
 
@@ -34,17 +34,17 @@ If a state `s` and action `a` is given, the value of the action value function `
 
 Convergence is reached in (1) if 
 
-`Q(s,a) = (1 - α) * Q(s,a) + α * (r + gamma * max_a'Q'(s',a'))` 
+`Q(s,a) = (1 - α) * Q(s,a) + α * (r + γ * max_a'Q'(s',a'))` 
 
 or 
 
-`r + gamma * max_a'Q'(s',a') - Q(s,a) = 0` (2)
+`r + γ * max_a'Q'(s',a') - Q(s,a) = 0` (2)
 
 This is achieved via a backpropagation with the `batch size=64` of the neural network underlying the action-value function `Q(s,a)` with the mean square error loss function on the left hand side of equation (2) and an Adam optimizer.
 
 ### Policy
 
-The policy is an epsilon greedy policy. I.e., there is an epsilon value, which starts at `epsilon=1` and is decreased to `epislon=0.01` with the `epsilon decay factor=0.9999`, which is applied at each learning step. An epsilon greedy policy means that with a probability `epsilon` a random action is chosen and otherwise the action is chosen which yields the largest `Q(s,a)`-value.
+The policy is an epsilon greedy policy. I.e., there is an epsilon value, which starts at `ε=1` and is decreased to `ε=0.01` with the `ε decay factor=0.9999`, which is applied at each learning step. An epsilon greedy policy means that with a probability `ε` a random action is chosen and otherwise the action is chosen which yields the largest `Q(s,a)`-value.
 
 ### Replay memory
 
@@ -57,8 +57,8 @@ A summary of the hyperparameters used to solve the environment is given in the f
 
 - `α = 0.001`
 - `γ = 0.99`
-- `epsilon interval = [0.01, 1]`
-- `epsilon decay factor = 0.9999`
+- `ε interval = [0.01, 1]`
+- `ε decay factor = 0.9999`
 - `batch size = 64`
 - `loss = mse`
 - `τ = 0.001`
