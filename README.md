@@ -42,7 +42,8 @@ https://user-images.githubusercontent.com/92691697/137643034-a6803ce3-b77e-4201-
 
 In order to install the project provided in this repository on Windows 10, follow these steps:
 
-- Install a 64-bit version of [Anaconda](https://anaconda.cloud/installers)
+- For Windows users: If you do not know whether you have a 64-bit operating system, you can use this [help](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64)
+- Install [Anaconda](https://anaconda.cloud/installers)
 - Open the Anaconda prompt and execute the following commands:
 ```
 conda create --name drlnd python=3.6
@@ -66,7 +67,6 @@ cd ..\..
 git clone git@github.com:rb-rl/DDQN.git
 cd DDQN
 ```
-- For Windows users: If you do not know whether you have a 64-bit operating system, you can use this [help](https://support.microsoft.com/en-us/help/827218/how-to-determine-whether-a-computer-is-running-a-32-bit-version-or-64)
 - Download the Udacity Unity Banana environment matching your environment:
   - [Linux](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
   - [Mac OSX](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
